@@ -1,7 +1,13 @@
 <template>
 	<view >
 		
-		111
+		<view class="index-list">
+			<view class="index-list1"></view>
+			<view class="index-list2"></view>
+			<view class="index-list3"></view>
+			<view class="index-list4"></view>
+			
+		</view>
 		
 	</view>
 </template>
