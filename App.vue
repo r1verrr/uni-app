@@ -19,5 +19,7 @@
 	@import './common/icon.css';
 	/* 引入动画库 */
 	@import './common/animate.css';
+	/* 引入公共样式 */
+	@import './common/common.css';
 	
 </style>
