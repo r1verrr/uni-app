@@ -1,0 +1,64 @@
+
+.index-list.data-v-1d8378e8{
+	padding: 20rpx;
+	border-bottom: 1rpx solid #EEEEEE;
+}
+.index-list1>view.data-v-1d8378e8:first-child{
+	color: #f8f2f7;
+}
+.index-list1>view:first-child image.data-v-1d8378e8{
+		width: 80rpx;
+		height: 80rpx;
+		border-radius: 100%;
+		margin-right: 10rpx;
+}
+.index-list1>view.data-v-1d8378e8:last-child{
+	background: #F4F4F4;
+	border-radius: 5rpx;
+	padding: 0 10rpx;
+}
+.index-list1>view:last-child>view.data-v-1d8378e8{
+}
+.index-list2.data-v-1d8378e8{
+	padding-top: 15rpx;
+	font-size: 32rpx;
+}
+.index-list3.data-v-1d8378e8{
+		padding-top: 15rpx;
+		position: relative;
+}
+.index-list3>image.data-v-1d8378e8{
+	width: 100%;
+	border-radius: 20rpx;
+}
+.index-list4 view.data-v-1d8378e8{
+	color: #999999;
+}
+.index-list4.data-v-1d8378e8{
+	padding: 15rpx 0;
+}
+.index-list4>view>view>view.data-v-1d8378e8{
+	margin-right: 10rpx;
+}
+.index-list4>view>view.data-v-1d8378e8:first-child{
+	margin-right: 10rpx;
+}
+.index-list-play.data-v-1d8378e8{
+	position: absolute;
+	font-size: 80rpx;
+	color: #FFFFFF;
+}
+.index-list-playinfo.data-v-1d8378e8{
+	position: absolute;
+	background: #555b40;
+	color: #FFFFFF;
+	bottom: 8rpx;
+	right: 8rpx;
+	border-radius: 40rpx;
+	font-size: 25rpx;
+	padding: 0 10rpx;
+}
+.index-list4 .acitve.data-v-1d8378e8,.index-list4 .acitve>view.data-v-1d8378e8{
+		color: #c8e323;
+}
+
