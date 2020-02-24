@@ -11,9 +11,9 @@
 							"align":"center",
 							"backgroundColor":"#f7f7f7",
 							"borderRadius":"4px",
-							"placeholder":"搜索糗事",
+							"placeholder":"搜糗事",
 							"placeholderColor":"#CCCCCC",
-							"disabled":false
+							"disabled":true
 						},
 						// 配置按鈕
 						"buttons":[
@@ -52,6 +52,48 @@
         ,{
             "path" : "pages/home/home",
             "style" : {}
+        }
+        ,{
+            "path" : "pages/search/search",
+            "style" : {
+							"app-plus":{
+									//隐藏滚动条
+									"scrollIndicator":"none",
+									"titleNView":{
+										// 关闭左边箭头
+										"autoBackButton":false,
+										// 搜索框配置
+										"searchInput":{
+											"align":"left",
+											"backgroundColor":"#f7f7f7",
+											"borderRadius":"4px",
+											"placeholder":"搜索糗事",
+											"placeholderColor":"#CCCCCC",
+											"disabled":false
+										},
+										// 配置按鈕
+										"buttons":[// 右边
+											{
+												"color":"#000000",
+												"colorPressed":"#BBBBBB",
+												"float":"right",
+												"fontSize":"16px",							
+												"text":"取消"
+												
+											}
+										]
+							}
+						}
+        }
+    }
+		    ,{
+            "path" : "pages/add-input/add-input",
+            "style" : {
+							"app-plus":{
+								// 禁止原生导航
+							"titleNView":false
+							}
+						}
         }
     ],
 	"globalStyle": {

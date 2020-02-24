@@ -1,5 +1,5 @@
 <template>
-	<view class="uni-tab-bar">
+	<view class="dl">
 		<scroll-view scroll-x class="uni-swiper-tab">
 			<block v-for="(tab,index) in tabBars" :key="tab.id">
 				<view class="swiper-tab-list" 
@@ -28,9 +28,13 @@
 </script>
 		
 <style>
-	.uni-swiper-tab{
+	.dl{
 		border-bottom: 1upx solid #EEEEEE;
-		
+		width: 100%;
+		white-space: nowrap;
+		line-height: 100upx;
+		height: 100upx;
+		border-bottom: 1px solid #c8c7cc;
 	}
 	.swiper-tab-list{
 		color: #989798;

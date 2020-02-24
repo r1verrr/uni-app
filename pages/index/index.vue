@@ -11,12 +11,21 @@
 		<swiper class="swiper-box" :style="{height:swiperheight+'px'}" :current="tabIndex" @change="tabChange">
 			<swiper-item v-for="(items,index) in newslist" :key="index">
 				<scroll-view scroll-y class="list" @scrolltolower="loadmore(index)">
-					<!-- 图文列表 -->
-					<block v-for="(item,index1) in items.list" :key="index1">
-						<index-list :item="item" :index="index1"></index-list>
-					</block> 
-					<!-- 上拉加载更多 -->
-					<load-more :loadtext="items.loadtext"></load-more>
+					
+					<template v-if="items.list.length>0">
+						<!-- 图文列表 -->
+						<block v-for="(item,index1) in items.list" :key="index1">
+							<index-list :item="item" :index="index1"></index-list>
+						</block> 
+						<!-- 上拉加载更多 -->
+						<load-more :loadtext="items.loadtext"></load-more>
+					</template>
+					
+					<template v-else>
+						<!-- 无内容默认 -->
+						<nothing></nothing>
+					</template>
+					
 				</scroll-view>
 				
 			</swiper-item>
@@ -30,6 +39,7 @@
 	import indexList from "../../components/index/index-list.vue";
 	import swiperTabHead from "../../components/index/swiper-tab-head.vue";
 	import loadMore from "../../components/common/load-more.vue"
+	import nothing from "../../components/common/nothing.vue"
 	export default {
 		data() {
 			return {
@@ -188,6 +198,24 @@
 				}
 			})
 		},
+		// 监听搜索框点击事件
+		onNavigationBarSearchInputClicked() {
+			
+			uni.navigateTo({
+				url:"../search/search",
+			})
+		},
+		// 监听原生标题导航按钮点击事件(取消按钮)
+		onNavigationBarButtonTap(e){
+			switch(e.index){
+				case 1:
+				// 打开发布页面
+				uni.navigateTo({
+					url: "../add-input/add-input",
+				});
+				break;
+			}
+		},
 		methods: {
 			// 上拉加载更多
 			loadmore(index){
@@ -229,12 +257,12 @@
 		components:{
 			indexList,
 			swiperTabHead,
-			loadMore
+			loadMore,
+			nothing
 		}
 	}
 </script>
 
 <style >
-	
 	
 </style>
