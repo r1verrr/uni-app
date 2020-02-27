@@ -15,6 +15,21 @@
 		
 		<!-- 上传多图 -->
 		<uploudImages @uploud="uploud"></uploudImages>
+		
+		<!-- 弹出公告 -->
+		<uni-popup :show="showpopup" position="middle" mode="fixed" @hidePopup="hidePopup">
+			<view class="gonggao">
+				<view class="u-f-ajc">
+					<image src="../../static/common/addinput.png" mode="widthFix"></image>
+				</view>
+				<view>1.涉及黄色，政治，广告及骚扰信息</view>
+				<view>2.涉及黄色，政治，广告及骚扰信息</view>
+				<view>3.涉及黄色，政治，广告及骚扰信息</view>
+				<view>4.涉及黄色，政治，广告及骚扰信息</view>
+				<button type="default" @tap="hidePopup">朕知道了</button>
+			</view>
+		</uni-popup>
+		
 	</view>
 </template>
 
@@ -22,20 +37,54 @@
 	let changelook=['所有人可见','仅自己可见']
 		import uniNavBar from "../../components/uni-nav-bar/uni-nav-bar.vue";
 		import uploudImages from "../../components/common/uploud-images.vue";
+		import uniPopup from "../../components/uni-popup/uni-popup.vue";
 		
 	export default {
 		data() {
 			return {
+				isget:false,
+				showpopup:true,
 				yinsi:"所有人可见",
 				text:"1111",
 				imglist:[]
 			}
 		},
+		onBackPress() {
+			if(!this.isget){
+				this.baocun();
+				
+				// 只有在该函数中返回值为 true 时，才表示不执行默认的返回，自行处理此时的业务逻辑。
+				return true
+			}
+			
+			
+		},
 		components:{
 			uniNavBar,
-			uploudImages
+			uploudImages,
+			uniPopup
 		},
 		methods: {
+			// 保存为草稿
+			caogao(){
+				uni.showModal({
+					content:'是否保存为草稿',
+					cancelText:'不保存',
+					confirmText:'保存',
+					success: (res) => {
+						if(res.confirm){
+							console.log("v")
+							
+						}else{
+							
+						}
+						this.isget=true;
+						uni.navigateBack({
+							delta:1
+						});
+					},
+				});
+			},
 			// 返回
 			back(){
 				uni.navigateBack({
@@ -58,6 +107,9 @@
 			},
 			uploud(arr){
 				this.imglist=arr
+			},
+			hidePopup(){
+				this.showpopup = false
 			}
 			
 			
@@ -77,6 +129,18 @@
 
 <style>
  .uni-textarea{
-	 border: 1upx solid #EEEEEE;
+ 	border: 1upx solid #EEEEEE;
+ }
+ .gonggao{
+ 	width: 500upx;
+ }
+ .gonggao image{
+ 	width: 75%;
+ 	margin-bottom: 20upx;
+ }
+ .gonggao button{
+ 	margin-top: 20upx;
+ 	background: #FFE934;
+ 	color: #171606;
  }
 </style>
