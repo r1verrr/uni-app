@@ -5,7 +5,7 @@
 				<image :src="item.userpic" mode="widthFix" lazy-load></image>
 				{{item.username}}
 			</view>
-			<view class="u-f-ac" v-show="!item.isguanzhu" @tap="guanzhu">
+			<view class="u-f-ac" v-show="!isguanzhu" @tap="guanzhu">
 				<view class="icon iconfont icon-zengjia"></view>关注
 			</view>	
 		</view>
@@ -24,8 +24,8 @@
 					</view>
 		<view class="index-list4 u-f-ac u-f-jsb">
 			<view class="u-f-ac">
-				<view class="u-f-ac " :class="{'acitve':(item.infonum.index == 1)}" @tap="caozuo('ding')"><view class="icon iconfont icon-icon_xiaolian-mian"></view >{{item.infonum.dingnum}}</view>
-				<view class="u-f-ac" :class="{'acitve':(item.infonum.index == 2)}" @tap="caozuo('cai')"><view class="icon iconfont icon-kulian"></view>{{item.infonum.cainum}}</view>
+				<view class="u-f-ac " :class="{'acitve':(infonum.index == 1)}" @tap="caozuo('ding')"><view class="icon iconfont icon-icon_xiaolian-mian"></view >{{infonum.dingnum}}</view>
+				<view class="u-f-ac" :class="{'acitve':(infonum.index == 2)}" @tap="caozuo('cai')"><view class="icon iconfont icon-kulian"></view>{{infonum.cainum}}</view>
 			</view>
 			<view class="u-f-ac">
 				<view class="u-f-ac"><view class="icon iconfont icon-pinglun1"></view >{{item.commentnum}}</view>
@@ -42,10 +42,18 @@
 			item:Object,
 			index:Number
 		},
+		// 不要直接操作父组件传过来的数据, 建一个值接受 
+		// 不然微信小程序有问题
+		data() {
+			return {
+				isguanzhu: this.item.isguanzhu,
+				infonum:this.item.infonum
+			}
+		},
 		methods:{
 			// 关注
 			guanzhu(){
-				this.item.isguanzhu = true;
+				this.isguanzhu = true;
 				uni.showToast({
 					title: '关注成功',
 				});
@@ -54,20 +62,20 @@
 			caozuo(type){
 				switch (type){
 					case "ding":
-					if(this.item.infonum.index == 1){return;}
-					this.item.infonum.dingnum++;
-					if(this.item.infonum.index == 2){
-						this.item.infonum.cainum--;
+					if(this.infonum.index == 1){return;}
+					this.infonum.dingnum++;
+					if(this.infonum.index == 2){
+						this.infonum.cainum--;
 					}
-					this.item.infonum.index=1;
+					this.infonum.index=1;
 					break;
 					case "cai":
-					if(this.item.infonum.index == 2){return;}
-					this.item.infonum.cainum++;
-					if(this.item.infonum.index == 1){
-						this.item.infonum.dingnum--;
+					if(this.infonum.index == 2){return;}
+					this.infonum.cainum++;
+					if(this.infonum.index == 1){
+						this.infonum.dingnum--;
 					}
-					this.item.infonum.index=2;
+					this.infonum.index=2;
 					break;
 				}
 			},

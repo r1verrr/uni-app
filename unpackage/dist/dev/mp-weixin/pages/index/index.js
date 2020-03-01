@@ -140,7 +140,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var indexList = function indexList() {return __webpack_require__.e(/*! import() | components/index/index-list */ "components/index/index-list").then(__webpack_require__.bind(null, /*! ../../components/index/index-list.vue */ 45));};var swiperTabHead = function swiperTabHead() {return __webpack_require__.e(/*! import() | components/index/swiper-tab-head */ "components/index/swiper-tab-head").then(__webpack_require__.bind(null, /*! ../../components/index/swiper-tab-head.vue */ 52));};var loadMore = function loadMore() {return __webpack_require__.e(/*! import() | components/common/load-more */ "components/common/load-more").then(__webpack_require__.bind(null, /*! ../../components/common/load-more.vue */ 59));};var nothing = function nothing() {return __webpack_require__.e(/*! import() | components/common/nothing */ "components/common/nothing").then(__webpack_require__.bind(null, /*! ../../components/common/nothing.vue */ 66));};var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var indexList = function indexList() {return __webpack_require__.e(/*! import() | components/index/index-list */ "components/index/index-list").then(__webpack_require__.bind(null, /*! ../../components/index/index-list.vue */ 53));};var swiperTabHead = function swiperTabHead() {return __webpack_require__.e(/*! import() | components/index/swiper-tab-head */ "components/index/swiper-tab-head").then(__webpack_require__.bind(null, /*! ../../components/index/swiper-tab-head.vue */ 60));};var loadMore = function loadMore() {return __webpack_require__.e(/*! import() | components/common/load-more */ "components/common/load-more").then(__webpack_require__.bind(null, /*! ../../components/common/load-more.vue */ 67));};var nothing = function nothing() {return __webpack_require__.e(/*! import() | components/common/nothing */ "components/common/nothing").then(__webpack_require__.bind(null, /*! ../../components/common/nothing.vue */ 74));};var _default =
 
 
 
@@ -342,8 +342,20 @@ __webpack_require__.r(__webpack_exports__);
   },
   // 监听搜索框点击事件
   onNavigationBarSearchInputClicked: function onNavigationBarSearchInputClicked() {
+
     uni.navigateTo({
       url: "../search/search" });
+
+  },
+  // 监听原生标题导航按钮点击事件(取消按钮)
+  onNavigationBarButtonTap: function onNavigationBarButtonTap(e) {
+    switch (e.index) {
+      case 1:
+        // 打开发布页面
+        uni.navigateTo({
+          url: "../add-input/add-input" });
+
+        break;}
 
   },
   methods: {

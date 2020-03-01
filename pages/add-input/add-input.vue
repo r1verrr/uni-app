@@ -50,9 +50,12 @@
 			}
 		},
 		onBackPress() {
+			// 如果有值
+			if(!this.text && this.imglist.length<1){
+				return ;
+			}
 			if(!this.isget){
-				this.baocun();
-				
+				this.caogao();
 				// 只有在该函数中返回值为 true 时，才表示不执行默认的返回，自行处理此时的业务逻辑。
 				return true
 			}

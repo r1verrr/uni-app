@@ -57,11 +57,12 @@
     "quickapp" : {},
     /* 小程序特有相关 */
     "mp-weixin" : {
+        "usingComponents" : true,
+        /* 小程序特有相关 */
         "appid" : "",
         "setting" : {
-            "urlCheck" : false
-        },
-        "usingComponents" : true
+            "urlCheck" : true
+        }
     },
     "mp-alipay" : {
         "usingComponents" : true

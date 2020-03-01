@@ -131,7 +131,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
 //
 //
 //
@@ -144,7 +144,27 @@ var _default =
 
 
   },
+  // 监听原生标题导航按钮点击事件
+  onNavigationBarButtonTap: function onNavigationBarButtonTap(e) {
+    // index:0 取消按钮
+    if (e.index == 0) {
+      uni.navigateBack({
+        // 向上返回一级
+        delta: 1 });
+
+    }
+
+  },
+  // 监听搜索框文本变化
+  onNavigationBarSearchInputChanged: function onNavigationBarSearchInputChanged(e) {
+    console.log(e.text);
+  },
+  // 监听点击搜索按钮事件
+  onNavigationBarSearchInputConfirmed: function onNavigationBarSearchInputConfirmed() {
+    console.log(e.text);
+  },
   methods: {} };exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ })
 

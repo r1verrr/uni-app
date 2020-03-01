@@ -1,6 +1,11 @@
 
-.uni-swiper-tab{
+.dl{
 	border-bottom: 1rpx solid #EEEEEE;
+	width: 100%;
+	white-space: nowrap;
+	line-height: 100rpx;
+	height: 100rpx;
+	border-bottom: 1px solid #c8c7cc;
 }
 .swiper-tab-list{
 	color: #989798;
