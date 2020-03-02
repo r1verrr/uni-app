@@ -19,10 +19,7 @@
 							{{tab.name}}
 							<view v-if="(tabIndex==index)" class="nav-tab-bar-line"></view>
 						</view>
-					</block>
-					
-					
-				
+					</block>					
 				</view>
 			</block>
 			<!-- 右边 -->
@@ -33,9 +30,35 @@
 				
 			</block>
 		</uni-nav-bar>
-		<view class="ss">
-			
+		<!-- 列表 -->
+		<view class="common-list u-f">
+			<view class="common-list-l">
+				<image src="../../static/demo/userpic/12.jpg" mode="widthFix" lazy-load=""></image>
+			</view>
+			<view class="common-list-r ">
+				<view class="u-f-ac u-f-jsb">
+					<view class="u-f-ac">昵称
+					  <view class="tag-sex icon iconfont icon-nan">24</view>
+					</view>
+					<view class="icon iconfont icon-zengjia ">关注</view>
+				</view>
+				
+				<view >我是标题</view>
+				<view >
+					<image src="../../static/demo/datapic/13.jpg" mode="widthFix" lazy-load></image>
+				</view>
+				<view class="u-f-ac u-f-jsb">
+					<view>厦门 湖里</view>
+					<view class="u-f-ac">
+						<view class="icon iconfont icon-zhuanfa">10</view>
+						<view class="icon iconfont icon-pinglun1">10</view>
+						<view class="icon iconfont icon-dianzan1">30</view>
+					</view>
+				</view>
+				
+			</view>
 		</view>
+		
 	</view>
 </template>
 
@@ -67,7 +90,7 @@
 	}
 </script>
 
-<style>
+<style scoped>
 
 .nav-left>view, .nav-right>view{
 	font-size: 45upx;
@@ -106,4 +129,67 @@
 	bottom:12upx;
 }
 
+
+.common-list{
+	padding: 30upx;
+	}
+	/* 列表 */
+.common-list-l{
+		/* 防止标题过长被压缩 */
+		flex-shrink: 0;
+ }
+.common-list-l image{
+	width: 90upx;
+	height: 90upx;
+	border-radius: 100%;
+}
+.common-list-r{
+	flex: 1;
+	margin-left: 15upx;
+	border-bottom: 1upx solid #EEEEEE;
+	padding-bottom: 10upx;
+}
+.common-list-r>view:nth-child(3)>image{
+	width: 100%;
+	border-radius: 10upx;
+}
+/* 昵称 */
+.common-list-r>view:nth-child(1)>view:first-child{
+	color: #aaa9aa;
+	font-size: 30upx;
+	
+}
+/* 性别年龄 */
+.tag-sex{
+	background: #007AFF;
+	color: #FFFFFF;
+	font-size: 23upx;
+	padding: 5upx 10upx;
+	margin-left: 10upx;
+	border-radius: 20upx;
+	line-height: 24upx;
+}
+/* 关注 */
+.common-list-r>view:nth-child(1)>view:last-child{
+	background: #EEEEEE;
+	padding: 0 10upx;
+	font-size: 26upx;
+	
+}
+.common-list-r>view:nth-child(2){
+	font-size: 32upx;
+	padding: 10upx 0;
+}
+.common-list-r>view:nth-child(3){
+	
+}
+
+.common-list-r>view:nth-child(4)>view{
+	color: #AAAAAA;
+	
+}
+.common-list-r>view:nth-child(4)>view:nth-child(2)>view{
+	margin-left: 10upx;
+	padding-left: 5upx;
+	}
 </style>
