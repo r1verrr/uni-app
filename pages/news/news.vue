@@ -1,7 +1,7 @@
 <template>
 	<view>
 		<!-- 自定义导航栏 -->
-		<uni-nav-bar :statusBar="true"  @click-right="openAdd">
+		<uni-nav-bar :fixed="true" :statusBar="true"  @click-right="openAdd">
 			<!-- 左边 -->
 			<block slot="left">
 				<view class="nav-left">
@@ -31,42 +31,22 @@
 			</block>
 		</uni-nav-bar>
 		<!-- 列表 -->
-		<view class="common-list u-f">
-			<view class="common-list-l">
-				<image src="../../static/demo/userpic/12.jpg" mode="widthFix" lazy-load=""></image>
-			</view>
-			<view class="common-list-r ">
-				<view class="u-f-ac u-f-jsb">
-					<view class="u-f-ac">昵称
-					  <view class="tag-sex icon iconfont icon-nan">24</view>
-					</view>
-					<view class="icon iconfont icon-zengjia ">关注</view>
-				</view>
-				
-				<view >我是标题</view>
-				<view >
-					<image src="../../static/demo/datapic/13.jpg" mode="widthFix" lazy-load></image>
-				</view>
-				<view class="u-f-ac u-f-jsb">
-					<view>厦门 湖里</view>
-					<view class="u-f-ac">
-						<view class="icon iconfont icon-zhuanfa">10</view>
-						<view class="icon iconfont icon-pinglun1">10</view>
-						<view class="icon iconfont icon-dianzan1">30</view>
-					</view>
-				</view>
-				
-			</view>
-		</view>
+		
+		<block v-for="(item,index) in list" :key="index">
+			<common-list :item="item" :index="index"></common-list>
+		</block>
+		
 		
 	</view>
 </template>
 
 <script>
 	import uniNavBar from "../../components/uni-nav-bar/uni-nav-bar.vue";
+	import commonList from "../../components/common/common-list.vue"
 	export default {
 		components:{
-			uniNavBar
+			uniNavBar,
+			commonList
 		},
 		data() {
 			return {
@@ -74,6 +54,81 @@
 				tabBars:[
 					{name:"关注",id:"guanzhu"},
 					{name:"话题",id:"huati"}
+				],
+				list:[
+					// 文字
+					{
+						userpic:"../../static/demo/userpic/12.jpg",
+						username:"嘿嘿",
+						sex:0, //0 男 1 女 
+						age:25,
+						isguanzhu:false,
+						title:"我是标题",
+						titlepic:"",
+						video:false,
+						share:false,
+						path:"厦门 湖里",
+						sharenum:20,
+						commentnum:30,
+						goodnum:20
+					},
+					
+					// 图文
+					{
+						userpic:"../../static/demo/userpic/12.jpg",
+						username:"嘿嘿",
+						sex:0, //0 男 1 女 
+						age:25,
+						isguanzhu:false,
+						title:"我是标题",
+						titlepic:"../../static/demo/datapic/13.jpg",
+						video:false,
+						share:false,
+						path:"厦门 湖里",
+						sharenum:20,
+						commentnum:30,
+						goodnum:20
+					},
+					
+					// 视频
+					{
+						userpic:"../../static/demo/userpic/12.jpg",
+						username:"嘿嘿",
+						sex:0, //0 男 1 女 
+						age:25,
+						isguanzhu:false,
+						title:"我是标题",
+						titlepic:"../../static/demo/datapic/13.jpg",
+						video:
+						{
+							looknum:"20w",
+							long:"2:47"
+							},
+						share:false,
+						path:"厦门 湖里",
+						sharenum:20,
+						commentnum:30,
+						goodnum:20
+					},
+					// 分享
+					{
+						userpic:"../../static/demo/userpic/12.jpg",
+						username:"嘿嘿",
+						sex:0, //0 男 1 女 
+						age:25,
+						isguanzhu:false,
+						title:"我是标题",
+						titlepic:"",
+						video:false,
+						share:{
+							title:"我是分享的标题",
+							titlepic:"../../static/demo/datapic/14.jpg"	
+						},
+						path:"厦门 湖里",
+						sharenum:20,
+						commentnum:30,
+						goodnum:20
+					},
 				]
 			}
 		},
@@ -91,105 +146,41 @@
 </script>
 
 <style scoped>
-
 .nav-left>view, .nav-right>view{
-	font-size: 45upx;
-}
-.nav-left>view{
-	color: #e9a459;
-}
-.nav-left{
-	margin-left: 16upx;
-}
-	.nav-right{
+		font-size: 45upx;
+	}
+	.nav-left>view{
+		color: #e9a459;
+	}
+	.nav-left{
+		margin-left: 16upx;
+	}
+		.nav-right{
+			width: 100%;
+		}
+	.nav-tab-bar{
 		width: 100%;
+		margin-left: -20upx;
+		position: relative;
+		
 	}
-.nav-tab-bar{
-	width: 100%;
-	margin-left: -20upx;
-	position: relative;
-	
-}
-.nav-tab-bar>view{
-	font-size: 33upx;
-	padding: 0 15upx;
-	font-weight: bold;
-	color:#9fa09f
-}
-.active{
-	color: #333333!important;
-}
-
-.nav-tab-bar-line{
-	border-bottom: 5upx solid #fdd12c;
-	border-top: 5upx solid #fdd12c;
-	width:70upx;
-	border-radius: 20upx;
-	position: absolute;
-	bottom:12upx;
-}
-
-
-.common-list{
-	padding: 30upx;
+	.nav-tab-bar>view{
+		font-size: 33upx;
+		padding: 0 15upx;
+		font-weight: bold;
+		color:#9fa09f
 	}
-	/* 列表 */
-.common-list-l{
-		/* 防止标题过长被压缩 */
-		flex-shrink: 0;
- }
-.common-list-l image{
-	width: 90upx;
-	height: 90upx;
-	border-radius: 100%;
-}
-.common-list-r{
-	flex: 1;
-	margin-left: 15upx;
-	border-bottom: 1upx solid #EEEEEE;
-	padding-bottom: 10upx;
-}
-.common-list-r>view:nth-child(3)>image{
-	width: 100%;
-	border-radius: 10upx;
-}
-/* 昵称 */
-.common-list-r>view:nth-child(1)>view:first-child{
-	color: #aaa9aa;
-	font-size: 30upx;
-	
-}
-/* 性别年龄 */
-.tag-sex{
-	background: #007AFF;
-	color: #FFFFFF;
-	font-size: 23upx;
-	padding: 5upx 10upx;
-	margin-left: 10upx;
-	border-radius: 20upx;
-	line-height: 24upx;
-}
-/* 关注 */
-.common-list-r>view:nth-child(1)>view:last-child{
-	background: #EEEEEE;
-	padding: 0 10upx;
-	font-size: 26upx;
-	
-}
-.common-list-r>view:nth-child(2){
-	font-size: 32upx;
-	padding: 10upx 0;
-}
-.common-list-r>view:nth-child(3){
-	
-}
-
-.common-list-r>view:nth-child(4)>view{
-	color: #AAAAAA;
-	
-}
-.common-list-r>view:nth-child(4)>view:nth-child(2)>view{
-	margin-left: 10upx;
-	padding-left: 5upx;
+	.active{
+		color: #333333!important;
 	}
+	
+	.nav-tab-bar-line{
+		border-bottom: 5upx solid #fdd12c;
+		border-top: 5upx solid #fdd12c;
+		width:70upx;
+		border-radius: 20upx;
+		position: absolute;
+		bottom:12upx;
+	}
+
 </style>
