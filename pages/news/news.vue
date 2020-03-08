@@ -36,24 +36,17 @@
 
 						</swiper>
 						<!-- 热门分类 -->
-						<view class="topic-nav">
-							<view class="u-f-ac u-f-jsb">
-								<view > 热门分类</view>
-								<view class="u-f-ajc">更多<view class="icon iconfont icon-jinru "></view></view>
-							</view>
-							<view class="u-f-ac">
-								<view>最新</view>
-								<view>游戏</view>
-								<view>打卡</view>
-								<view>故事</view>
-								<view>喜爱</view>
-								<view>xx</view>
-							</view>
+						<topicNav :nav="topic.nav"></topicNav>
+						<!-- 最近更新 -->
+						<view class="topic-new">
+							<view>最近更新</view>
+							<block v-for="(item,index) in topic.list" :key="index">
+								<topicList :item="item" :index="index"></topicList>
+							</block>
 							
 						</view>
-						<!-- 最近更新 -->
 
-						话题
+					
 
 					</scroll-view>
 
@@ -68,16 +61,20 @@
 	import newsNavBar from '../../components/news/new-nav-bar.vue'
 	import commonList from "../../components/common/common-list.vue"
 	import loadMore from "../../components/common/load-more.vue"
+	import topicNav from "../../components/news/topic-nav.vue"
+	import topicList from "../../components/news/topic-list.vue"
 	export default {
 		components: {
 			newsNavBar,
 			commonList,
-			loadMore
+			loadMore,
+			topicNav,
+			topicList
 		},
 		data() {
 			return {
 				swiperheight: 500,
-				tabIndex: 1,
+				tabIndex: 0,
 				tabBars: [{
 						name: "关注",
 						id: "guanzhu"
@@ -169,6 +166,46 @@
 					{ src:"../../static/demo/banner2.jpg" },
 					{ src:"../../static/demo/banner2.jpg" },
 					{ src:"../../static/demo/banner2.jpg" },
+					],
+					nav:[
+						{name:"最新"},
+						{name:"打卡"},
+						{name:"最新"},
+						{name:"最新"},
+						{name:"最新"},
+						{name:"最新"},
+					],
+					list:[
+						{
+							titlepic:"../../static/demo/topicpic/13.jpeg",
+							title:"#话题名称#",
+							desc:"话题描述",
+							totalnum:30,
+							todaynum:20
+						},
+						{
+							titlepic:"../../static/demo/topicpic/13.jpeg",
+							title:"#话题名称#",
+							desc:"话题描述",
+							totalnum:30,
+							todaynum:20
+						},
+						{
+							titlepic:"../../static/demo/topicpic/13.jpeg",
+							title:"#话题名称#",
+							desc:"话题描述",
+							totalnum:30,
+							todaynum:20
+						},
+						{
+							titlepic:"../../static/demo/topicpic/13.jpeg",
+							title:"#话题名称#",
+							desc:"话题描述",
+							totalnum:30,
+							todaynum:20
+						},
+						
+						
 					]
 				}
 					
@@ -224,7 +261,7 @@
 				}, 1000);
 			},
 
-			// 点击事件
+		
 		}
 	}
 </script>
@@ -251,28 +288,13 @@
 	border-radius: 10upx;
 }
 
-.topic-nav{
-	border-bottom: 1upx solid #EEEEEE;
-	border-top: 1upx solid  #EEEEEE;
+.topic-new{
 	padding: 20upx;
-}
-.topic-nav>view:first-child{
-	margin-bottom: 10upx;
 	
 }
-.topic-nav>view:first-child view{
-	color:#9E9E9E;
-	border: 1upx solid;
+.topic-new>view:first-child{
+	padding-bottom:10upx ;
+	font-size: 32upx;
 }
-.topic-nav>view:first-child>view:first-child{
-	
-}
-.topic-nav>view:last-child>view{
-	flex: 1;
-	background: #dddddd;
-	color: #a09fa0;
-	border-radius: 10upx;
-	margin: 0 10upx;
-	text-align: center;
-}
+
 </style>
