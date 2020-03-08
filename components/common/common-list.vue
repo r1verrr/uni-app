@@ -127,6 +127,7 @@
 	}
 	.common-list-r>view:nth-child(3){
 		position: relative;
+		margin-bottom: 10upx;
 	}
 	.common-list-play,.common-list-playinfo{
 		position: absolute;
