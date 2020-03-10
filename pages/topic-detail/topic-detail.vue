@@ -16,7 +16,7 @@
 				</template>
 			</block>
 		</view>
-		
+
 	</view>
 </template>
 
@@ -49,37 +49,172 @@
 						id: "zuixin"
 					}
 				],
-				tablist:[
-					{loadtxet:"上拉加载更多",
-						list:[
+				tablist: [
+					{
+						loadtxet: "上拉加载更多",
+						list: [
+							// 文字
 							{
-							userpic: "../../static/demo/userpic/12.jpg",
-							username: "嘿嘿",
-							sex: 0, //0 男 1 女 
-							age: 25,
-							isguanzhu: false,
-							title: "我是标题",
-							titlepic: "",
-							video: false,
-							share: false,
-							path: "厦门 湖里",
-							sharenum: 20,
-							commentnum: 30,
-							goodnum: 20
-						}
-						
-						]}
-					
+								userpic: "../../static/demo/userpic/12.jpg",
+								username: "嘿嘿",
+								sex: 0, //0 男 1 女 
+								age: 25,
+								isguanzhu: false,
+								title: "我是标题",
+								titlepic: "",
+								video: false,
+								share: false,
+								path: "厦门 湖里",
+								sharenum: 20,
+								commentnum: 30,
+								goodnum: 20
+							},
+							
+							// 图文
+							{
+								userpic: "../../static/demo/userpic/12.jpg",
+								username: "嘿嘿",
+								sex: 0, //0 男 1 女 
+								age: 25,
+								isguanzhu: false,
+								title: "我是标题",
+								titlepic: "../../static/demo/datapic/13.jpg",
+								video: false,
+								share: false,
+								path: "厦门 湖里",
+								sharenum: 20,
+								commentnum: 30,
+								goodnum: 20
+							},
+							
+							// 视频
+							{
+								userpic: "../../static/demo/userpic/12.jpg",
+								username: "嘿嘿",
+								sex: 0, //0 男 1 女 
+								age: 25,
+								isguanzhu: false,
+								title: "我是标题",
+								titlepic: "../../static/demo/datapic/13.jpg",
+								video: {
+									looknum: "20w",
+									long: "2:47"
+								},
+								share: false,
+								path: "厦门 湖里",
+								sharenum: 20,
+								commentnum: 30,
+								goodnum: 20
+							},
+							// 分享
+							{
+								userpic: "../../static/demo/userpic/12.jpg",
+								username: "嘿嘿",
+								sex: 0, //0 男 1 女 
+								age: 25,
+								isguanzhu: false,
+								title: "我是标题",
+								titlepic: "",
+								video: false,
+								share: {
+									title: "我是分享的标题",
+									titlepic: "../../static/demo/datapic/14.jpg"
+								},
+								path: "厦门 湖里",
+								sharenum: 20,
+								commentnum: 30,
+								goodnum: 20
+							},
+						]
+					},
+					{
+						loadtxet: "上拉加载更多",
+						list: [
+							// 文字
+							{
+								userpic: "../../static/demo/userpic/12.jpg",
+								username: "嘿嘿",
+								sex: 0, //0 男 1 女 
+								age: 25,
+								isguanzhu: false,
+								title: "我是标题",
+								titlepic: "",
+								video: false,
+								share: false,
+								path: "厦门 湖里",
+								sharenum: 20,
+								commentnum: 30,
+								goodnum: 20
+							},
+							
+							// 图文
+							{
+								userpic: "../../static/demo/userpic/12.jpg",
+								username: "嘿嘿",
+								sex: 0, //0 男 1 女 
+								age: 25,
+								isguanzhu: false,
+								title: "我是标题",
+								titlepic: "../../static/demo/datapic/13.jpg",
+								video: false,
+								share: false,
+								path: "厦门 湖里",
+								sharenum: 20,
+								commentnum: 30,
+								goodnum: 20
+							},
+							
+							// 视频
+							{
+								userpic: "../../static/demo/userpic/12.jpg",
+								username: "嘿嘿",
+								sex: 0, //0 男 1 女 
+								age: 25,
+								isguanzhu: false,
+								title: "我是标题",
+								titlepic: "../../static/demo/datapic/13.jpg",
+								video: {
+									looknum: "20w",
+									long: "2:47"
+								},
+								share: false,
+								path: "厦门 湖里",
+								sharenum: 20,
+								commentnum: 30,
+								goodnum: 20
+							},
+							// 分享
+							{
+								userpic: "../../static/demo/userpic/12.jpg",
+								username: "嘿嘿",
+								sex: 0, //0 男 1 女 
+								age: 25,
+								isguanzhu: false,
+								title: "我是标题",
+								titlepic: "",
+								video: false,
+								share: {
+									title: "我是分享的标题",
+									titlepic: "../../static/demo/datapic/14.jpg"
+								},
+								path: "厦门 湖里",
+								sharenum: 20,
+								commentnum: 30,
+								goodnum: 20
+							},
+						]
+					}
+
 				]
 			}
 		},
 		methods: {
 			// 点击事件
-			tabtap(index){
-				this.tabIndex=index;
-			},
-			}
+				tabtap(index){
+							this.tabIndex=index;
+						},
 		}
+	}
 </script>
 
 <style>
