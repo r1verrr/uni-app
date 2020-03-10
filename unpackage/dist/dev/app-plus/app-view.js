@@ -5470,7 +5470,35 @@ var render = function() {
             return _vm.$handleViewEvent($event)
           }
         }
-      })
+      }),
+      _c(
+        "v-uni-view",
+        { staticClass: _vm._$g(3, "sc"), attrs: { _i: 3 } },
+        [
+          _vm._l(_vm._$g(4, "f"), function(item, index, $20, $30) {
+            return [
+              _vm._$g("5-" + $30, "i")
+                ? [
+                    _vm._l(_vm._$g(6 + "-" + $30, "f"), function(
+                      list,
+                      listindex,
+                      $21,
+                      $31
+                    ) {
+                      return [
+                        _c("common-list", {
+                          key: list["k0"],
+                          attrs: { _i: "7-" + $30 + "-" + $31 }
+                        })
+                      ]
+                    })
+                  ]
+                : _vm._e()
+            ]
+          })
+        ],
+        2
+      )
     ],
     1
   )
@@ -5507,7 +5535,8 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
 var _topicInfo = _interopRequireDefault(__webpack_require__(/*! ../../components/topic/topic-info.vue */ 159));
-var _swiperTabHead = _interopRequireDefault(__webpack_require__(/*! ../../components/index/swiper-tab-head.vue */ 19));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}var _default =
+var _swiperTabHead = _interopRequireDefault(__webpack_require__(/*! ../../components/index/swiper-tab-head.vue */ 19));
+var _commonList = _interopRequireDefault(__webpack_require__(/*! ../../components/common/common-list.vue */ 80));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}var _default =
 {
 
   data: function data() {
@@ -5517,7 +5546,8 @@ var _swiperTabHead = _interopRequireDefault(__webpack_require__(/*! ../../compon
   },
   components: {
     'topicInfo': _topicInfo.default,
-    'swiperTabHead': _swiperTabHead.default } };exports.default = _default;
+    'swiperTabHead': _swiperTabHead.default,
+    'commonList': _commonList.default } };exports.default = _default;
 
 /***/ }),
 /* 159 */
